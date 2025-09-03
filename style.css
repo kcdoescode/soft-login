@@ -1,0 +1,134 @@
+/* Base */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root{
+  --brown: #9c7355; /* richer caramel brown */
+  --brown-dark: #7b5940; /* deep mocha */
+  --glass-bg: rgba(255,255,255,0.15);
+  --input-bg: rgba(255,255,255,0.38);
+  --text: #ffffff;
+  --text-soft: rgba(255,255,255,0.88);
+  --shadow: 0 18px 60px rgba(0,0,0,0.2);
+}
+body{
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #bfa38e 0%, #a58369 45%, #8b6245 100%);
+  color: var(--text);
+}
+
+/* 3D stage */
+.auth-container{ perspective: 1200px; }
+
+/* Flipping card */
+.form-card{
+  width: 380px;
+  min-height: 560px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform .8s ease;
+}
+.form-card.flip{ transform: rotateY(180deg); }
+
+/* Two sides */
+.form-side{
+  position:absolute; inset:0;
+  padding: 28px;
+  border-radius: 18px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow);
+  display:flex; flex-direction:column; justify-content:center;
+  backface-visibility: hidden;
+}
+.form-login{ transform: rotateY(0); }
+.form-signup{ transform: rotateY(180deg); }
+
+/* Titles */
+.form-title{
+  text-align:center;
+  font-weight: 800;
+  font-size: 26px;
+  margin-bottom: 18px;
+  color: #fff;
+}
+
+/* Inputs */
+input, select{
+  width:100%;
+  padding: 13px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: var(--input-bg);
+  color:#4b3a2d;
+  font-size:14px;
+  outline:none;
+  margin-bottom: 12px;
+}
+input::placeholder{ color: rgba(75,58,45,0.65); }
+
+.dob-gender{ display:flex; gap:10px; }
+
+/* Password field with toggle */
+.password-container{ position:relative; }
+.toggle-password{
+  position:absolute; right:10px; top:50%;
+  transform: translateY(-50%);
+  background: transparent; border:none; cursor:pointer;
+  font-size:16px; line-height:1;
+  color:#4b3a2d;
+}
+
+/* Options + alignment */
+.form-options{
+  display:flex; align-items:center; justify-content:space-between;
+  gap: 12px; margin: 6px 0 14px;
+  font-size: 13px;
+}
+.checkbox-row{
+  display:flex; align-items:center; gap:8px;
+  color: var(--text);
+}
+.checkbox-row input{ width:16px; height:16px; }
+
+.forgot-link{ color: var(--text); text-decoration: underline; }
+
+/* Button */
+.btn{
+  background: var(--brown);
+  border:none; color:#fff; font-weight:600;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor:pointer;
+  transition: transform .18s ease, background .25s ease;
+}
+.btn:hover{ transform: translateY(-1px); background: var(--brown-dark); }
+
+/* Switch link */
+.switch-text{
+  text-align:center; margin-top: 14px; font-size: 14px; color: var(--text-soft);
+}
+.switch-text a{ color:#fff; font-weight:700; }
+
+/* Terms row */
+.terms{ font-size: 12.5px; margin: 4px 0 12px; }
+.terms a{ color:#fff; text-decoration: underline; }
+
+/* Strength meter */
+.strength-meter{
+  height: 6px; border-radius: 6px;
+  background: transparent; margin: 2px 0 10px;
+}
+
+/* Small screens */
+@media (max-width: 420px){
+  .form-card{ width: 92vw; }
+}
+
+/* Text & label brightness */
+.checkbox-row, .switch-text, .forgot-link, .terms {
+  color: #ffffff;
+  font-weight: 500;
+}
