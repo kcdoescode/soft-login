@@ -1,8 +1,7 @@
-/* Base */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 :root{
-  --brown: #9c7355; /* richer caramel brown */
-  --brown-dark: #7b5940; /* deep mocha */
+  --brown: #9c7355;
+  --brown-dark: #7b5940;
   --glass-bg: rgba(255,255,255,0.15);
   --input-bg: rgba(255,255,255,0.38);
   --text: #ffffff;
@@ -18,10 +17,8 @@ body{
   color: var(--text);
 }
 
-/* 3D stage */
 .auth-container{ perspective: 1200px; }
 
-/* Flipping card */
 .form-card{
   width: 380px;
   min-height: 560px;
@@ -31,7 +28,6 @@ body{
 }
 .form-card.flip{ transform: rotateY(180deg); }
 
-/* Two sides */
 .form-side{
   position:absolute; inset:0;
   padding: 28px;
@@ -45,7 +41,6 @@ body{
 .form-login{ transform: rotateY(0); }
 .form-signup{ transform: rotateY(180deg); }
 
-/* Titles */
 .form-title{
   text-align:center;
   font-weight: 800;
@@ -54,7 +49,6 @@ body{
   color: #fff;
 }
 
-/* Inputs */
 input, select{
   width:100%;
   padding: 13px 14px;
@@ -70,7 +64,6 @@ input::placeholder{ color: rgba(75,58,45,0.65); }
 
 .dob-gender{ display:flex; gap:10px; }
 
-/* Password field with toggle */
 .password-container{ position:relative; }
 .toggle-password{
   position:absolute; right:10px; top:50%;
@@ -80,7 +73,6 @@ input::placeholder{ color: rgba(75,58,45,0.65); }
   color:#4b3a2d;
 }
 
-/* Options + alignment */
 .form-options{
   display:flex; align-items:center; justify-content:space-between;
   gap: 12px; margin: 6px 0 14px;
@@ -94,7 +86,6 @@ input::placeholder{ color: rgba(75,58,45,0.65); }
 
 .forgot-link{ color: var(--text); text-decoration: underline; }
 
-/* Button */
 .btn{
   background: var(--brown);
   border:none; color:#fff; font-weight:600;
@@ -106,28 +97,23 @@ input::placeholder{ color: rgba(75,58,45,0.65); }
 }
 .btn:hover{ transform: translateY(-1px); background: var(--brown-dark); }
 
-/* Switch link */
 .switch-text{
   text-align:center; margin-top: 14px; font-size: 14px; color: var(--text-soft);
 }
 .switch-text a{ color:#fff; font-weight:700; }
 
-/* Terms row */
 .terms{ font-size: 12.5px; margin: 4px 0 12px; }
 .terms a{ color:#fff; text-decoration: underline; }
 
-/* Strength meter */
 .strength-meter{
   height: 6px; border-radius: 6px;
   background: transparent; margin: 2px 0 10px;
 }
 
-/* Small screens */
 @media (max-width: 420px){
   .form-card{ width: 92vw; }
 }
 
-/* Text & label brightness */
 .checkbox-row, .switch-text, .forgot-link, .terms {
   color: #ffffff;
   font-weight: 500;

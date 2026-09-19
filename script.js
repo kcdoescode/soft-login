@@ -1,4 +1,3 @@
-// Flip interactions
 const formCard = document.getElementById('formCard');
 const showSignup = document.getElementById('showSignup');
 const showLogin  = document.getElementById('showLogin');
@@ -6,7 +5,6 @@ const showLogin  = document.getElementById('showLogin');
 showSignup.addEventListener('click', (e)=>{ e.preventDefault(); formCard.classList.add('flip'); });
 showLogin .addEventListener('click', (e)=>{ e.preventDefault(); formCard.classList.remove('flip'); });
 
-// Show/Hide passwords
 function togglePassword(id, btn){
   const field = document.getElementById(id);
   const isHidden = field.type === 'password';
@@ -14,7 +12,6 @@ function togglePassword(id, btn){
   btn.textContent = isHidden ? '🙈' : '👁';
 }
 
-// Password strength + confirm match
 const signupPassword = document.getElementById('signupPassword');
 const confirmPassword = document.getElementById('confirmPassword');
 const strengthMeter   = document.getElementById('passwordStrength');
@@ -45,6 +42,5 @@ function checkMatch(){
   confirmPassword.style.borderColor = ok ? 'rgba(87,216,87,0.8)' : '#ff4d4d';
 }
 
-// Optional: prevent default submit (demo only)
 document.getElementById('loginForm').addEventListener('submit', (e)=> e.preventDefault());
 document.getElementById('signupForm').addEventListener('submit', (e)=> e.preventDefault());
