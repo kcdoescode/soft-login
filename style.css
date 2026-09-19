@@ -15,9 +15,77 @@ body{
   place-items: center;
   background: linear-gradient(135deg, #bfa38e 0%, #a58369 45%, #8b6245 100%);
   color: var(--text);
+  overflow-x: hidden;
+  position: relative;
 }
 
-.auth-container{ perspective: 1200px; }
+.background-mesh{
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.orb{
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.75;
+  will-change: transform;
+}
+
+.orb-1{
+  width: 440px;
+  height: 440px;
+  background: radial-gradient(circle, rgba(230, 185, 145, 0.7), rgba(156, 115, 85, 0));
+  top: -80px;
+  left: -80px;
+  animation: orbFloat1 18s ease-in-out infinite alternate;
+}
+
+.orb-2{
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(123, 89, 64, 0.65), rgba(75, 58, 45, 0));
+  bottom: -100px;
+  right: -80px;
+  animation: orbFloat2 22s ease-in-out infinite alternate;
+}
+
+.orb-3{
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, rgba(245, 222, 202, 0.55), rgba(214, 180, 154, 0));
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  animation: orbFloat3 16s ease-in-out infinite alternate;
+}
+
+@keyframes orbFloat1{
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(60px, 80px) scale(1.08); }
+  100% { transform: translate(-30px, 40px) scale(0.95); }
+}
+
+@keyframes orbFloat2{
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-70px, -60px) scale(1.1); }
+  100% { transform: translate(40px, -30px) scale(0.92); }
+}
+
+@keyframes orbFloat3{
+  0% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-30%, -65%) scale(1.15); }
+  100% { transform: translate(-65%, -35%) scale(0.88); }
+}
+
+.auth-container{
+  perspective: 1200px;
+  position: relative;
+  z-index: 1;
+}
 
 .form-card{
   width: 380px;
@@ -69,8 +137,19 @@ input::placeholder{ color: rgba(75,58,45,0.65); }
   position:absolute; right:10px; top:50%;
   transform: translateY(-50%);
   background: transparent; border:none; cursor:pointer;
-  font-size:16px; line-height:1;
+  display: flex; align-items: center; justify-content: center;
+  padding: 4px;
   color:#4b3a2d;
+  opacity: 0.7;
+  transition: opacity .18s ease, transform .18s ease;
+}
+.toggle-password:hover{
+  opacity: 1;
+  transform: translateY(-50%) scale(1.08);
+}
+.toggle-password svg{
+  display: block;
+  pointer-events: none;
 }
 
 .form-options{
@@ -93,9 +172,39 @@ input::placeholder{ color: rgba(75,58,45,0.65); }
   font-size: 16px;
   border-radius: 10px;
   cursor:pointer;
-  transition: transform .18s ease, background .25s ease;
+  transition: transform .18s ease, background .25s ease, opacity .2s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 .btn:hover{ transform: translateY(-1px); background: var(--brown-dark); }
+.btn:active{ transform: translateY(0); }
+.btn.is-loading{
+  pointer-events: none;
+  opacity: 0.88;
+}
+.btn.is-loading .btn-text{
+  opacity: 0;
+  visibility: hidden;
+}
+.btn-spinner{
+  display: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  animation: btnSpin 0.7s linear infinite;
+}
+.btn.is-loading .btn-spinner{
+  display: block;
+}
+@keyframes btnSpin{
+  to { transform: rotate(360deg); }
+}
 
 .switch-text{
   text-align:center; margin-top: 14px; font-size: 14px; color: var(--text-soft);
