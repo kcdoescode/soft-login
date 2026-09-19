@@ -118,3 +118,62 @@ input::placeholder{ color: rgba(75,58,45,0.65); }
   color: #ffffff;
   font-weight: 500;
 }
+
+.form-card.single-card{
+  min-height: auto;
+}
+.form-card.single-card .form-side{
+  position: relative;
+  inset: auto;
+}
+
+.icon-badge{
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.form-subtitle{
+  text-align: center;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--text-soft);
+  margin-bottom: 20px;
+}
+
+.btn-secondary{
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  margin-top: 10px;
+}
+.btn-secondary:hover{
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.success-state{
+  display: none;
+  text-align: center;
+  animation: fadeIn .35s ease;
+}
+
+.success-state.active{
+  display: block;
+}
+
+.form-state.hidden{
+  display: none;
+}
+
+@keyframes fadeIn{
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+

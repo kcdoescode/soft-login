@@ -14,6 +14,7 @@ A warm, glassmorphic authentication card featuring fluid 3D flip transitions and
   - Dynamic password strength meter with instant visual rating.
   - Real-time confirmation matching that indicates matching passwords on the fly.
   - Show / hide password toggles.
+  - Interactive password recovery flow with instant email confirmation.
 - **Zero Dependencies**: Pure vanilla code with no external frameworks or libraries to install.
 - **Responsive**: Fluidly scales across desktops, tablets, and small mobile viewports.
 
@@ -23,9 +24,10 @@ A warm, glassmorphic authentication card featuring fluid 3D flip transitions and
 
 ```text
 soft-login/
-├── index.html       # Dual-sided auth card markup
-├── style.css        # 3D transforms, glass tokens & responsive styling
-└── script.js        # Card flip triggers, visibility toggles & strength checks
+├── index.html           # Dual-sided auth card markup
+├── forgot-password.html # Password recovery & confirmation view
+├── style.css            # 3D transforms, glass tokens & responsive styling
+└── script.js            # Card flip triggers, visibility toggles & strength checks
 ```
 
 ---
